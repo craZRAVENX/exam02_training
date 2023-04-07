@@ -5,24 +5,26 @@ size_t	ft_strspn(const char *s, const char *accept)
 {
     int i = 0;
     int j =0;
-    while(s[i])
+    while (s[i])
     {
         j = 0;
         while(accept[j])
         {
             if(s[i] == accept[j])
-                return(j);
+                break;
             j++;
         }
+        if(!accept[j])
+            return(i);
         i++;
     }
-    return(j);
+    return(i);
 }
 
 int main()
 {
-    char a[] ="hello world";
-    char b[] = "hewol";
+    char a[] ="emeyn arda";
+    char b[] = "em";
 
     printf("%zu\n",  ft_strspn(a, b));
     printf("%zu\n", strspn(a, b));
